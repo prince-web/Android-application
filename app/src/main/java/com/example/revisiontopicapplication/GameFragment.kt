@@ -36,7 +36,11 @@ class GameFragment : Fragment() {
             false
         )
 
-        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+       // viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+        viewModel = ViewModelProvider(this)[GameViewModel::class.java]
+
+        binding.gameViewModel = viewModel
+        binding.lifecycleOwner = this
         binding.completeBtn.setOnClickListener{
             viewModel.onCorrect()
         }
