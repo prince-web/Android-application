@@ -1,28 +1,23 @@
 package com.example.revisiontopicapplication
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.library.baseAdapters.DataBinderMapperImpl
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.revisiontopicapplication.databinding.FragmentGameBinding
-import kotlinx.coroutines.newFixedThreadPoolContext
-
 
 
 class GameFragment : Fragment() {
 
     private lateinit var viewModel: GameViewModel
 
-    private lateinit var binding:FragmentGameBinding
+    private lateinit var binding: FragmentGameBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,28 +31,22 @@ class GameFragment : Fragment() {
             false
         )
 
-       // viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+        // viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
         viewModel = ViewModelProvider(this)[GameViewModel::class.java]
 
         binding.gameViewModel = viewModel
         binding.lifecycleOwner = this
-//        binding.completeBtn.setOnClickListener{
-//            viewModel.onCorrect()
-//        }
-//        binding.skipBtn.setOnClickListener{
-//            viewModel.onSkip()
-//        }
 
         viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
 
         viewModel.topic.observe(viewLifecycleOwner, Observer { newTopic ->
-            binding.topicText.text =newTopic.toString()
+            binding.topicText.text = newTopic.toString()
         })
 
         viewModel.eventFinished.observe(viewLifecycleOwner, Observer { hasFinished ->
-            if(hasFinished) {
+            if (hasFinished) {
                 gameFinished()
                 viewModel.eventFinishedComplete()
             }
@@ -69,12 +58,13 @@ class GameFragment : Fragment() {
 
     private fun gameFinished() {
 
-        Toast.makeText(this.activity,"Game has Finished", Toast.LENGTH_LONG).show()
-       val action = GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel.score.value?:0)
-        val currentScore = viewModel.score.value?:0
-        action.setScore(currentScore)
+        Toast.makeText(this.activity, "Game has Finished", Toast.LENGTH_LONG).show()
+        val action =
+            GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel.score.value ?: 0)
+        val currentScore = viewModel.score.value ?: 0
+        action.score = currentScore
         this.findNavController().navigate(action)
-       //Navigation.createNavigateOnClickListener(GameFragmentDirections.actionGameFragmentToScoreFragment(score))
+        //Navigation.createNavigateOnClickListener(GameFragmentDirections.actionGameFragmentToScoreFragment(score))
     }
 
 
