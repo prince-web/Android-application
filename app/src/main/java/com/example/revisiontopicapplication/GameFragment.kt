@@ -15,14 +15,12 @@ import com.example.revisiontopicapplication.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
 
+
     private lateinit var viewModel: GameViewModel
 
     private lateinit var binding: FragmentGameBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
             inflater,
@@ -30,6 +28,7 @@ class GameFragment : Fragment() {
             container,
             false
         )
+
 
         // viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
         viewModel = ViewModelProvider(this)[GameViewModel::class.java]
@@ -51,6 +50,7 @@ class GameFragment : Fragment() {
                 viewModel.eventFinishedComplete()
             }
         })
+
 
         return binding.root
     }
