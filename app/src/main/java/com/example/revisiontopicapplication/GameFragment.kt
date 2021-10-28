@@ -41,12 +41,12 @@ class GameFragment : Fragment() {
 
         binding.gameViewModel = viewModel
         binding.lifecycleOwner = this
-        binding.completeBtn.setOnClickListener{
-            viewModel.onCorrect()
-        }
-        binding.skipBtn.setOnClickListener{
-            viewModel.onSkip()
-        }
+//        binding.completeBtn.setOnClickListener{
+//            viewModel.onCorrect()
+//        }
+//        binding.skipBtn.setOnClickListener{
+//            viewModel.onSkip()
+//        }
 
         viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
