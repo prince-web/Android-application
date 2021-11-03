@@ -6,13 +6,14 @@ buildscript {
         nav_version = '2.3.5'
         lifecycle_version = '2.4.0-rc01'
         arch_version = '2.1.0'
+        roomVersion = '2.3.0'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.2"
+        classpath 'com.android.tools.build:gradle:7.0.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
 
         // NOTE: Do not place your application dependencies here; they belong

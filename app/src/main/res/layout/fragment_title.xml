@@ -28,15 +28,28 @@
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/start_button"
-        android:layout_marginBottom="32dp"
+        android:theme="@style/GoButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading_text"
-        app:layout_constraintVertical_bias="0.746"
-        android:theme="@style/GoButton"/>
+        app:layout_constraintVertical_bias="0.747" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_topic"
+        android:theme="@style/GoButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.719"
+        app:layout_constraintStart_toEndOf="@+id/start_button"
+        app:layout_constraintTop_toBottomOf="@+id/heading_text"
+        app:layout_constraintVertical_bias="0.704" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

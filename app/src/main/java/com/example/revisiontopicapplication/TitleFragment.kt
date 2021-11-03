@@ -45,6 +45,12 @@ class TitleFragment : Fragment() {
                 TitleFragmentDirections.actionTitleFragmentToGameFragment()
             )
         )
+
+//        binding.addBtn.setOnClickListener(
+//            Navigation.createNavigateOnClickListener(
+//                TitleFragmentDirections.actionTitleFragmentToInsertWord()
+//            )
+//        )
         return binding.root
     }
 

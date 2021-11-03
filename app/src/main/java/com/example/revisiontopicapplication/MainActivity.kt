@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this,navController)
 
 
+        //supportActionBar?.hide()
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
