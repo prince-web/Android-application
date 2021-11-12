@@ -60,7 +60,9 @@ class GameViewModel: ViewModel() {
         topicList = mutableListOf(
             "Android Layouts",
             "Data Binding",
-            "Navigation"
+            "Navigation",
+            "Git",
+            "View Models"
         )
         topicList.shuffle()
     }
